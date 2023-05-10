@@ -9,7 +9,7 @@ namespace HomeWorkPurchase
 
         static int accountBalance = 0;
 
-        static void Main(string[] args)
+        static void Main()
         {
             while(purchasesQueue.Count > 0)
             {
