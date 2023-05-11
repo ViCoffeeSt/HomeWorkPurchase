@@ -5,34 +5,34 @@ namespace HomeWorkPurchase
 {
     class Program
     {
-        static readonly Queue<int> purchasesQueue = new Queue<int>(new int[] { 10, 20, 30, 40, 50 });
-
-        static int accountBalance = 0;
-
-        static void Main()
+        public static void Main()
         {
-            while(purchasesQueue.Count > 0)
-            {
-                QueueService();
-            }
+            Queue<int> purchasesQueue = new Queue<int>(new int[] { 10, 20, 30, 40, 50 });
 
-            EndQueue();
+            int accountBalance = 0;
+
+            ServeQuque(purchasesQueue, ref accountBalance);
+
+            EndQueue(accountBalance);
         }
 
-        static void QueueService()
+        public static void ServeQuque(Queue<int> purchasesQueue, ref int accountBalance)
         {
+            while (purchasesQueue.Count > 0)
+            {
                 int purchase = purchasesQueue.Dequeue();
                 accountBalance += purchase;
 
                 Console.WriteLine($"Purchase of {purchase}$ was serviced. Account balance is {accountBalance}$.");
                 Console.ReadKey();
                 Console.Clear();
+            }
         }
 
-        static void EndQueue()
+        static void EndQueue(int accountBalance)
         {
             Console.WriteLine("All customers have been serviced.\n" +
-                $"\nThe queue is over, all buyers are covered, the final balance is: {accountBalance}\n" +
+                $"\nThe queue is over, all buyers are covered, the final balance is: {accountBalance}$\n" +
                 "\nPress any key to exit...");
             Console.ReadKey();
         }
