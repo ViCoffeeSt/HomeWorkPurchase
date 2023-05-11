@@ -18,19 +18,19 @@ namespace HomeWorkPurchase
 
         public static int ServeQueue(Queue<int> purchasesQueue)
         {
-            int accountBalance = 0;
+            int balance = 0;
 
             while (purchasesQueue.Count > 0)
             {
                 int purchase = purchasesQueue.Dequeue();
-                accountBalance += purchase;
+                balance += purchase;
 
-                Console.WriteLine($"Purchase of {purchase}$ was serviced. Account balance is {accountBalance}$.");
+                Console.WriteLine($"Purchase of {purchase}$ was serviced. Account balance is {balance}$.");
                 Console.ReadKey();
                 Console.Clear();
             }
 
-            return accountBalance;
+            return balance;
         }
     }
 }
